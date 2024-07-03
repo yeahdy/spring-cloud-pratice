@@ -18,8 +18,17 @@ jobs:
     steps:
       - name: Git Checkout
         uses: actions/checkout@v3.0.2
+
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            application:
+              - '**/build.gradle'
+              - '**/src/**'
       
       - name: JDK 설치
+        if: steps.changes.outputs.application == 'true'
         uses: actions/setup-java@v3
         with:
           java-version: 17
@@ -27,9 +36,11 @@ jobs:
           cache: 'gradle'
 
       - name: Gradle Build
+        if: steps.changes.outputs.application == 'true'
         run: |  #병렬로 동작
           chmod +x first-service/gradlew
           cd first-service
+          ./gradlew :spotlessApply
           ./gradlew build --parallel
 
       - name: Coverage Report
@@ -41,6 +52,33 @@ jobs:
           update-comment: true
           min-coverage-overall: 10
           min-coverage-changed-files: 10
-          # github pr 에 jacoco 리포트를 코멘트로 남겨줌
+          # github pr에 jacoco 리포트를 코멘트로 남겨줌(** 모든 하위디렉토리 조회)
           paths: |
             ${{ github.workspace }}/**/build/jacoco/jacoco.xml
+    
+  style-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@v3.0.2
+
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            application:
+              - 'build.gradle'
+              - 'src/**'
+
+      - name: JDK 설치
+        if: steps.changes.outputs.application == 'true'
+        uses: actions/setup-java@v3
+        with:
+          distribution: zulu
+          java-version: 17
+          cache: 'gradle'
+
+      - name: Style Check
+        if: steps.changes.outputs.application == 'true'
+        run: |
+          ./gradlew spotlessCheck
