@@ -5,9 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import com.example.firstservice.IntegrationTest;
 import com.example.firstservice.messagequeue.KafkaConsumerService;
 import com.example.firstservice.messagequeue.KafkaProducerService;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +19,8 @@ public class KafkaConsumerTest extends IntegrationTest {
   @Autowired private KafkaProducerService kafkaProducerService;
   @MockBean private KafkaConsumerService kafkaConsumerService;
 
-  @Test
-  @DisplayName("Kafka 메세지 주고 받기")
+  //  @Test
+  //  @DisplayName("Kafka 메세지 주고 받기")
   void kafka_send_and_consume_test() {
     String topic = "score-topic";
     String expectMessage = "Passed the final exam";

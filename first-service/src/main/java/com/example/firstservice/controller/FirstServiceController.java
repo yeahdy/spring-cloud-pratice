@@ -22,13 +22,13 @@ public class FirstServiceController {
 
   @GetMapping("/welcome")
   public String welcome() {
-    return "Welcome to the First service.";
+    return "Welcome to the First service!";
   }
 
   @GetMapping("/message")
   public String message(@RequestHeader("first-request") String header) {
     log.info(header);
-    return "First Service message.";
+    return "First Service message!";
   }
 
   @GetMapping("/check")   public String check(HttpServletRequest request) {

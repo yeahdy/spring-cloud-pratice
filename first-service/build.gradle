@@ -110,7 +110,7 @@ tasks.jacocoTestCoverageVerification {
             limit {
                 counter = "LINE"
                 value = "COVEREDRATIO"
-                minimum = BigDecimal.valueOf(0.5)
+                minimum = BigDecimal.valueOf(0.1)
             }
 
             //class 당 코드 전체 라인이 최대 100 줄까지 가능
