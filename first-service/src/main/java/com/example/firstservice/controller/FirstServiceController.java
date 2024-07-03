@@ -25,13 +25,12 @@ public class FirstServiceController {
     return "Welcome to the First service.";
   }
 
-  @GetMapping("/message") public String message(@RequestHeader("first-request") String header) {
+  @GetMapping("/message")   public String message(@RequestHeader("first-request") String header) {
     log.info(header);
     return "First Service message.";
   }
 
-  @GetMapping("/check")
-  public String check(HttpServletRequest request) {
+  @GetMapping("/check")   public String check(HttpServletRequest request) {
     log.info("Server port={}", request.getServerPort());
     return String.format(
         "Hi, there. This is a message from First Service on PORT %s",
