@@ -25,7 +25,7 @@ public class CouponApplyServiceTest {
     public void apply_one_coupon_test() throws InterruptedException {
         //given
         couponApplyService.apply("537af763-22a9-46b6-ba43-80a80e4bf7e5");
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         //when
         long count = issueCouponRepository.count();
         //then

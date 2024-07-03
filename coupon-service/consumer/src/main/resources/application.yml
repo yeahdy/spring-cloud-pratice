@@ -8,3 +8,9 @@ spring:
     url: jdbc:mariadb://0.0.0.0:3307/bookmark
     username: root
     password: Daily12!@
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, busrefresh
