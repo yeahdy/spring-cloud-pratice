@@ -12,7 +12,7 @@ Spring cloud 로 만드는 MSA 애플리케이션으로 MSA 학습에 초점을 
 | --- | --- |
 | user-service | - 회원가입 <br> - 로그인 <br> - 회원 목록 조회 <br> - 회원 정보 조회 |
 | order-service | - 주문 등록 <br> - 회원 주문 조회 |
-| catalog-service | - 책 목록 조회 |
+| catalog-service | - 책 목록 조회 <br> - 책 재고 차감|
 | coupon-service | 쿠폰 등록 (user-service 와 통신 연결 예정) |
 
 <br>
