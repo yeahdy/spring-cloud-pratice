@@ -19,7 +19,7 @@ Spring cloud 로 만드는 MSA 애플리케이션으로 MSA 학습에 초점을 
 
 ## 📌아키텍처 구성
 ※ 이미지 클릭 후 "Ctrl + 마우스휠↑" 을 통해 확대가 가능합니다.
-![spring cloud MSA 아키텍처_watermark](https://github.com/yeahdy/spring-cloud-pratice/assets/86579541/f08bf66b-c0fc-40cb-9ac6-bea98672b174)
+![spring cloud MSA 아키텍처_설명보충](https://github.com/yeahdy/spring-cloud-pratice/assets/86579541/3acdaac3-08d0-44f1-8366-1b656e1995fd)
 
 <br>
 
