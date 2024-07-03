@@ -67,8 +67,8 @@ jobs:
         with:
           filters: |
             application:
-              - 'build.gradle'
-              - 'src/**'
+              - '**/build.gradle'
+              - '**/src/**'
 
       - name: JDK 설치
         if: steps.changes.outputs.application == 'true'
@@ -81,4 +81,7 @@ jobs:
       - name: Style Check
         if: steps.changes.outputs.application == 'true'
         run: |
+          chmod +x first-service/gradlew
+          cd first-service
+          ./gradlew :spotlessApply
           ./gradlew spotlessCheck

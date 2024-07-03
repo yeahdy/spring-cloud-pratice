@@ -22,7 +22,7 @@ public class FirstServiceController {
 
   @GetMapping("/welcome")
   public String welcome() {
-    return "Welcome to the First service!";
+    return "Welcome to the First service! this is score test";
   }
 
   @GetMapping("/message")
